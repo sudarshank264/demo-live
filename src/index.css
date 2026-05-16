@@ -1,0 +1,513 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #060a10;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #060a10;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#0dd9c4, #a855f7);
+  border-radius: 99px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes wordSwap {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.33%);
+  }
+}
+
+@keyframes storyZoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.07);
+  }
+}
+
+@keyframes panRightToLeft {
+  from {
+    background-position: 100% center;
+  }
+
+  to {
+    background-position: 0% center;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes spinBorder {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% center;
+  }
+
+  100% {
+    background-position: -200% center;
+  }
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* ========================= */
+/* 🔥 MARQUEE (2 LINE SUPPORT) */
+/* ========================= */
+
+.marquee-mask {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee.reverse {
+  animation: marqueeReverse 30s linear infinite;
+}
+
+.marquee-group {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.marquee-item {
+  font-family: 'Outfit', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.35);
+  padding: 0 36px;
+  white-space: nowrap;
+  letter-spacing: 0.2em;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+/* Hover animation */
+.marquee-item:hover {
+  color: rgba(13, 217, 196, 0.9);
+  transform: scale(1.1);
+}
+
+/* 🔥 Reverse animation */
+@keyframes marqueeReverse {
+  0% {
+    transform: translateX(-33.33%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+.grad-text {
+  background: linear-gradient(135deg, #0dd9c4 0%, #38bdf8 30%, #818cf8 65%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 300% auto;
+  animation: shimmer 5s linear infinite;
+}
+
+.skora-glow-btn {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 2px;
+  cursor: pointer;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.skora-glow-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  z-index: 0;
+  background: conic-gradient(from var(--angle), transparent 40%, #0dd9c4 60%, #38bdf8 72%, #818cf8 82%, #a855f7 90%, transparent 100%);
+  animation: spinBorder 2.5s linear infinite;
+}
+
+.skora-glow-btn-inner {
+  position: relative;
+  z-index: 1;
+  background: #0e0a14;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  transition: background 0.25s, transform 0.2s;
+  white-space: nowrap;
+  display: block;
+}
+
+.skora-glow-btn:hover .skora-glow-btn-inner {
+  background: #130f1e;
+  transform: scale(1.03);
+}
+
+.hero-pill-btn {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 2px;
+  cursor: pointer;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.hero-pill-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  z-index: 0;
+  background: conic-gradient(from var(--angle), transparent 30%, #0dd9c4 52%, #38bdf8 65%, #818cf8 78%, #a855f7 90%, transparent 100%);
+  animation: spinBorder 2s linear infinite;
+}
+
+.hero-pill-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: conic-gradient(from var(--angle), transparent 30%, #0dd9c4 52%, #38bdf8 65%, #818cf8 78%, #a855f7 90%, transparent 100%);
+  animation: spinBorder 2s linear infinite;
+  filter: blur(10px);
+  opacity: 0.45;
+  z-index: 0;
+}
+
+.hero-pill-btn-inner {
+  position: relative;
+  z-index: 1;
+  background: #13101a;
+  color: #fff;
+  padding: 15px 36px;
+  border-radius: 999px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  transition: background 0.25s, transform 0.2s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 0.01em;
+}
+
+.hero-pill-btn:hover .hero-pill-btn-inner {
+  background: #1b1528;
+  transform: scale(1.03);
+}
+
+.hero-pill-btn:hover::after {
+  opacity: 0.75;
+}
+
+.nav-item-group {
+  position: relative;
+}
+
+.nav-dropdown-panel {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  opacity: 0;
+  visibility: hidden;
+  background: rgba(10, 12, 18, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 8px;
+  backdrop-filter: blur(24px);
+  z-index: 100;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  min-width: 220px;
+}
+
+/* Subtle invisible bridge to prevent losing hover */
+.nav-dropdown-panel::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  height: 20px;
+}
+
+.nav-item-group:hover .nav-dropdown-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(8px);
+}
+
+.nav-dropdown-panel.mega {
+  min-width: 480px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  padding: 12px;
+}
+
+.nav-dropdown-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  color: rgba(200, 195, 205, 0.75);
+  text-decoration: none;
+  transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.nav-dropdown-link:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+/* Hamburger icon styles */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 8px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.desktop-only {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+/* Global Responsive Layout Utilities */
+.responsive-container {
+  max-width: 1250px;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(60px, 8vw, 120px) clamp(16px, 4vw, 32px);
+}
+
+.responsive-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(32px, 5vw, 64px);
+}
+
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: clamp(16px, 3vw, 24px);
+}
+
+.responsive-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: clamp(16px, 3vw, 24px);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 48px;
+}
+
+/* Fluid Typography */
+.text-fluid-h1 {
+  font-size: clamp(2.5rem, 6vw, 5.5rem) !important;
+  line-height: 1.1;
+}
+
+.text-fluid-h2 {
+  font-size: clamp(2rem, 4.5vw, 3.5rem) !important;
+  line-height: 1.2;
+}
+
+.text-fluid-p {
+  font-size: clamp(1rem, 1.5vw, 1.25rem) !important;
+  line-height: 1.6;
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Media Queries for Stacking */
+@media (max-width: 992px) {
+  .responsive-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .responsive-flex>div {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center !important;
+  }
+
+  .btn-group {
+    justify-content: center !important;
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: flex !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Specifically allow hero visual to stack instead of hiding if we want */
+  .stack-on-mobile {
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-group>button {
+    width: 100%;
+    justify-content: center;
+  }
+}
