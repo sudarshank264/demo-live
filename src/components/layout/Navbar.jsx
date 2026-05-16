@@ -102,8 +102,8 @@ export function Navbar({ scrollTo }) {
       return (
         <div className="mobile-sub-links-container">
           {subLinks.map((link, i) => (
-            <div 
-              key={i} 
+            <div
+              key={i}
               className={`mobile-sub-link-item ${link.isHeader ? 'header' : ''}`}
               onClick={() => {
                 const activeItem = OVERLAY_MENUS.find(m => m.id === activeOverlayMenu);
@@ -255,7 +255,7 @@ export function Navbar({ scrollTo }) {
             <div style={{
               display: "flex",
               gap: "8px",
-              background: "#BBD2CF",
+              background: "#ADF4E6",
               backdropFilter: "blur(24px)",
               WebkitBackdropFilter: "blur(24px)",
               padding: "6px 12px",
@@ -403,7 +403,7 @@ export function Navbar({ scrollTo }) {
             width: 100%;
             height: 100vh;
             z-index: 9999;
-            background: #BBD2CF;
+            background: #ADF4E6;
             display: flex;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             opacity: 0;

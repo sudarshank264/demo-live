@@ -10,7 +10,7 @@ export function BuildTeamSection() {
     { icon: "🚀", title: "Manage & Scale", desc: "Once deployed, you get full control and visibility of your team and mission dashboard. Manage, monitor, and modify along the way." },
   ];
   return (
-    <section ref={ref} style={{ background: "#BBD2CF" }}>
+    <section ref={ref} style={{ background: "#ADF4E6" }}>
       <div className="responsive-container">
         <div style={{ textAlign: "center", marginBottom: "52px" }}>
           <GradBadge>How We Work</GradBadge>

@@ -38,7 +38,7 @@ export function ProjectExecutionSection() {
 `;
 
   return (
-    <section ref={ref} style={{ background: "#BBD2CF", borderTop: "1px solid #f0f0f0" }}>
+    <section ref={ref} style={{ background: "#ADF4E6", borderTop: "1px solid #f0f0f0" }}>
       <div className="responsive-container">
         <div className="responsive-flex" style={{ alignItems: "center" }}>
           <div style={{ opacity: vis ? 1 : 0, transform: vis ? "none" : "translateX(-30px)", transition: "opacity 0.9s ease 0.2s, transform 0.9s ease 0.2s" }}>

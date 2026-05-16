@@ -68,7 +68,7 @@ export function TopStoriesSection() {
   };
 
   return (
-    <section style={{ backgroundColor: "#BBD2CF", padding: "80px 0", overflow: "hidden", fontFamily: "'Outfit', sans-serif" }}>
+    <section style={{ backgroundColor: "#ADF4E6", padding: "80px 0", overflow: "hidden", fontFamily: "'Outfit', sans-serif" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
         {/* Header */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "40px" }}>

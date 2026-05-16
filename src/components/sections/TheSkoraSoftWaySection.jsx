@@ -4,7 +4,7 @@ import { GradBadge } from "../ui/GradBadge";
 export function TheSkoraSoftWaySection() {
   const [ref, vis] = useInView(0.08);
   return (
-    <section ref={ref} style={{ background: "#BBD2CF" }}>
+    <section ref={ref} style={{ background: "#ADF4E6" }}>
       <div className="responsive-container">
         <div style={{ textAlign: "center", marginBottom: "52px" }}>
           <GradBadge>How It Works</GradBadge>

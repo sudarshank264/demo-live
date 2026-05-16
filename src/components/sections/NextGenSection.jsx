@@ -5,7 +5,7 @@ export function NextGenSection({ scrollTo }) {
   const [ref, vis] = useInView(0.08);
   const ascii = ASCII_FACE;
   return (
-    <section ref={ref} style={{ background: "#BBD2CF", padding: "clamp(48px, 8vw, 88px) 0" }}>
+    <section ref={ref} style={{ background: "#ADF4E6", padding: "clamp(48px, 8vw, 88px) 0" }}>
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 clamp(16px, 4vw, 32px)" }}>
         <div style={{ textAlign: "center", marginBottom: "36px" }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "14px" }}>

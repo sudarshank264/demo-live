@@ -45,7 +45,7 @@ export function ServicesSection() {
   const row2 = services.slice(3, 6);
 
   return (
-    <section id="services" style={{ background: "#BBD2CF", paddingBottom: "40px" }}>
+    <section id="services" style={{ background: "#ADF4E6", paddingBottom: "40px" }}>
       <style>{`
         .interactive-cards-row {
           display: flex;
