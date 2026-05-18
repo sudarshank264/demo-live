@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const MENU_DATA = [
   { name: "Home", id: "home" },
@@ -14,7 +15,6 @@ const OVERLAY_MENUS = [
   { id: "industries", label: "Industries", route: "industries" },
   { id: "services", label: "Services", route: "services" },
   { id: "platforms", label: "Platforms", route: "technologies" },
-  { id: "insights", label: "SkoraSoft Knowledge Institute", route: "insights" },
   { id: "about", label: "About Us", route: "about" },
   { id: "investors", label: "Investors" },
   { id: "careers", label: "Careers" },
@@ -26,33 +26,26 @@ const OVERLAY_MENUS = [
 const SUB_MENUS = {
   services: [
     { label: "Insights", isHeader: true },
-    { label: "SkoraSoft Topaz" },
-    { label: "Applied AI" },
-    { label: "SkoraSoft Generative AI" },
-    { label: "SkoraSoft Sustainability Services" }
+    { label: "Web Design & Development", route: "/services#web-design-development" },
+    { label: "Search Engine Optimization (SEO)", route: "/services#seo" },
+    { label: "Performance Marketing", route: "/services#performance-marketing" },
+    { label: "Search Engine Marketing (SEM)", route: "/services#sem" },
+    { label: "Video Editing", route: "/services#video-editing" },
+    { label: "IT Consulting", route: "/services#it-consulting" },
+    { label: "Digital Marketing", route: "/services#digital-marketing" }
   ],
   platforms: [
-    { label: "EdgeVerve" },
-    { label: "SkoraSoft Finacle" },
-    { label: "SkoraSoft Live Enterprise Suite" },
-    { label: "SkoraSoft Cortex" },
-    { label: "SkoraSoft Meridian" }
+    { label: "SkoraSoft Brand Studio" },
+    { label: "SkoraSoft Growth Hub" },
+    { label: "SkoraSoft Marketing Suite" },
+    { label: "SkoraSoft Analytics Pro" },
+    { label: "SkoraSoft Social Engine" }
   ],
   insights: [
     { label: "Overview" },
     { label: "Connect" },
     { label: "About Us" },
     { label: "Videos" }
-  ],
-  about: [
-    { label: "Overview" },
-    { label: "History" },
-    { label: "ESG" },
-    { label: "Management Profiles" },
-    { label: "SkoraSoft Knowledge Institute" },
-    { label: "SkoraSoft Stories" },
-    { label: "Champions Evolve" },
-    { label: "SkoraSoft Springboard" }
   ]
 };
 
@@ -63,6 +56,9 @@ export function Navbar({ scrollTo }) {
   const [activeOverlayMenu, setActiveOverlayMenu] = useState("navigate");
   const [mobileViewState, setMobileViewState] = useState('links');
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
@@ -72,7 +68,7 @@ export function Navbar({ scrollTo }) {
 
       const elements = [
         ...MENU_DATA.map(m => m.id),
-        "portfolio", "insights"
+        "Careers", "insights"
       ]
         .map(id => ({ id, el: document.getElementById(id) }))
         .filter(item => item.el)
@@ -92,7 +88,47 @@ export function Navbar({ scrollTo }) {
   }, []);
 
   const handleNavClick = (id) => {
-    scrollTo(id);
+    if (id === "about") {
+      navigate("/about");
+      setMobileMenuOpen(false);
+      return;
+    }
+
+    if (id === "Careers" || id === "careers") {
+      navigate("/careers");
+      setMobileMenuOpen(false);
+      return;
+    }
+
+    if (id === "home") {
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 100);
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      setMobileMenuOpen(false);
+      return;
+    }
+
+    if (id.startsWith('/')) {
+      navigate(id);
+      setMobileMenuOpen(false);
+      return;
+    }
+
+    // Other sections
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    } else {
+      scrollTo(id);
+    }
     setMobileMenuOpen(false);
   };
 
@@ -106,6 +142,10 @@ export function Navbar({ scrollTo }) {
               key={i}
               className={`mobile-sub-link-item ${link.isHeader ? 'header' : ''}`}
               onClick={() => {
+                if (link.route) {
+                  handleNavClick(link.route);
+                  return;
+                }
                 const activeItem = OVERLAY_MENUS.find(m => m.id === activeOverlayMenu);
                 if (activeItem?.route) handleNavClick(activeItem.route);
                 else handleNavClick('home');
@@ -122,25 +162,25 @@ export function Navbar({ scrollTo }) {
       case 'navigate':
         return (
           <div className="mega-menu-cards">
-            <div className="mega-card tall" onClick={() => handleNavClick('about')}>
-              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" alt="Abstract" />
+            <div className="mega-card tall" onClick={() => handleNavClick('/services#web-design-development')}>
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2672&auto=format&fit=crop" alt="Web Design" />
               <div className="mega-card-overlay">
-                <h3 className="mega-card-title">Being resilient. That's live Enterprise.</h3>
+                <h3 className="mega-card-title">Web Design & Development</h3>
                 <span className="mega-card-link">Know more ↗</span>
               </div>
             </div>
             <div className="mega-menu-cards-col">
-              <div className="mega-card short" onClick={() => handleNavClick('services')}>
-                <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2670&auto=format&fit=crop" alt="Digital core" />
+              <div className="mega-card short" onClick={() => handleNavClick('/services#seo')}>
+                <img src="https://images.unsplash.com/photo-1572177812156-58036aae439c?q=80&w=2670&auto=format&fit=crop" alt="SEO" />
                 <div className="mega-card-overlay">
-                  <h3 className="mega-card-title">Digital core capabilities</h3>
+                  <h3 className="mega-card-title">Search Engine Optimization</h3>
                   <span className="mega-card-link">Know more ↗</span>
                 </div>
               </div>
-              <div className="mega-card short" onClick={() => handleNavClick('technologies')}>
-                <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=2564&auto=format&fit=crop" alt="AI" />
+              <div className="mega-card short" onClick={() => handleNavClick('/services#performance-marketing')}>
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop" alt="Performance Marketing" />
                 <div className="mega-card-overlay">
-                  <h3 className="mega-card-title">AI & Automation</h3>
+                  <h3 className="mega-card-title">Performance Marketing</h3>
                   <span className="mega-card-link">Know more ↗</span>
                 </div>
               </div>
@@ -255,7 +295,7 @@ export function Navbar({ scrollTo }) {
             <div style={{
               display: "flex",
               gap: "8px",
-              background: "#ADF4E6",
+              background: "#ffffff",
               backdropFilter: "blur(24px)",
               WebkitBackdropFilter: "blur(24px)",
               padding: "6px 12px",
@@ -266,12 +306,12 @@ export function Navbar({ scrollTo }) {
               {[
                 { name: "Services", id: "services" },
                 { name: "Industries", id: "industries" },
-                { name: "Portfolio", id: "portfolio" },
+                { name: "Careers", id: "Careers" },
                 { name: "Insights", id: "insights" }
               ].map((menu) => (
                 <button
                   key={menu.name}
-                  onClick={() => scrollTo(menu.id)}
+                  onClick={() => handleNavClick(menu.id)}
                   style={{
                     fontFamily: "'DM Sans',sans-serif",
                     fontSize: "15px",
@@ -356,8 +396,14 @@ export function Navbar({ scrollTo }) {
                 key={menu.id}
                 className={`mega-menu-link ${activeOverlayMenu === menu.id ? 'active' : ''}`}
                 onClick={() => {
-                  setActiveOverlayMenu(menu.id);
-                  setMobileViewState('content');
+                  if (menu.id === 'about') {
+                    handleNavClick('about');
+                  } else if (menu.id === 'careers') {
+                    handleNavClick('careers');
+                  } else {
+                    setActiveOverlayMenu(menu.id);
+                    setMobileViewState('content');
+                  }
                 }}
               >
                 {menu.label}
