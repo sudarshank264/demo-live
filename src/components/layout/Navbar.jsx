@@ -12,9 +12,9 @@ const MENU_DATA = [
 
 const OVERLAY_MENUS = [
   { id: "navigate", label: "Navigate your next" },
-  { id: "industries", label: "Industries", route: "industries" },
+  { id: "industries", label: "Industries", route: "/industries" },
   { id: "services", label: "Services", route: "services" },
-  { id: "platforms", label: "Platforms", route: "technologies" },
+  { id: "platforms", label: "Platforms", route: "/platforms" },
   { id: "about", label: "About Us", route: "about" },
   { id: "investors", label: "Investors" },
   { id: "careers", label: "Careers" },
@@ -35,11 +35,11 @@ const SUB_MENUS = {
     { label: "Digital Marketing", route: "/services#digital-marketing" }
   ],
   platforms: [
-    { label: "SkoraSoft Brand Studio" },
-    { label: "SkoraSoft Growth Hub" },
-    { label: "SkoraSoft Marketing Suite" },
-    { label: "SkoraSoft Analytics Pro" },
-    { label: "SkoraSoft Social Engine" }
+    { label: "SkoraSoft Brand Studio", route: "/platforms#brand-studio" },
+    { label: "SkoraSoft Growth Hub", route: "/platforms#growth-hub" },
+    { label: "SkoraSoft Marketing Suite", route: "/platforms#marketing-suite" },
+    { label: "SkoraSoft Analytics Pro", route: "/platforms#analytics-pro" },
+    { label: "SkoraSoft Social Engine", route: "/platforms#social-engine" }
   ],
   insights: [
     { label: "Overview" },
@@ -96,6 +96,18 @@ export function Navbar({ scrollTo }) {
 
     if (id === "Careers" || id === "careers") {
       navigate("/careers");
+      setMobileMenuOpen(false);
+      return;
+    }
+
+    if (id === "industries") {
+      navigate("/industries");
+      setMobileMenuOpen(false);
+      return;
+    }
+
+    if (id === "technologies" || id === "platforms") {
+      navigate("/platforms");
       setMobileMenuOpen(false);
       return;
     }
@@ -215,10 +227,7 @@ export function Navbar({ scrollTo }) {
           zIndex: 50,
           transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
           padding: scrolled ? "16px 0" : "24px 0",
-          background: scrolled ? "rgba(6, 10, 16, 0.6)" : "transparent",
-          backdropFilter: scrolled ? "blur(16px)" : "none",
-          WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(255, 255, 255, 0.05)" : "1px solid transparent",
+          background: "transparent",
         }}
       >
         <div
@@ -231,7 +240,7 @@ export function Navbar({ scrollTo }) {
             justifyContent: "space-between"
           }}
         >
-          {/* LEFT: HAMBURGER & LOGO */}
+          {/* LEFT: LOGO */}
           <div
             style={{
               display: "flex",
@@ -240,45 +249,10 @@ export function Navbar({ scrollTo }) {
               flex: 1
             }}
           >
-            <button
-              onClick={() => {
-                setMobileMenuOpen(true);
-                setMobileViewState('links');
-              }}
-              style={{
-                width: "48px",
-                height: "48px",
-                borderRadius: "50%",
-                background: "rgba(255,255,255,0.05)",
-                backdropFilter: "blur(12px)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.15)";
-                e.currentTarget.style.transform = "scale(1.05)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.05)";
-                e.currentTarget.style.transform = "scale(1)";
-              }}
-              aria-label="Open Menu"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="15" y2="18"></line>
-              </svg>
-            </button>
-
             <img
               src="/logo-skora.png"
               alt="SkoraSoft"
-              style={{ height: "40px", objectFit: "contain", cursor: "pointer", filter: "brightness(0) invert(1)" }}
+              style={{ height: "40px", objectFit: "contain", cursor: "pointer" }}
               onClick={() => handleNavClick("home")}
             />
           </div>
@@ -306,8 +280,8 @@ export function Navbar({ scrollTo }) {
               {[
                 { name: "Services", id: "services" },
                 { name: "Industries", id: "industries" },
-                { name: "Careers", id: "Careers" },
-                { name: "Insights", id: "insights" }
+                { name: "Technologies", id: "technologies" },
+                { name: "Careers", id: "Careers" }
               ].map((menu) => (
                 <button
                   key={menu.name}
@@ -337,44 +311,74 @@ export function Navbar({ scrollTo }) {
             </div>
           </div>
 
-          {/* CTA BUTTON */}
-          <div className="desktop-only" style={{ flex: 1, textAlign: "right", display: "flex", justifyContent: "flex-end" }}>
+          {/* RIGHT: HAMBURGER MENU */}
+          {/* RIGHT: HAMBURGER MENU */}
+          <div
+            style={{
+              flex: 1,
+              textAlign: "right",
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
+          >
             <button
-              onClick={() => handleNavClick("contact")}
+              onClick={() => {
+                setMobileMenuOpen(true);
+                setMobileViewState("links");
+              }}
               style={{
-                background: "linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))",
-                color: "#fff",
-                padding: "12px 24px",
-                borderRadius: "999px",
-                border: "1px solid rgba(255,255,255,0.15)",
-                fontWeight: 500,
-                fontSize: "15px",
-                cursor: "pointer",
+                width: "48px",
+                height: "48px",
+                borderRadius: "50%",
+
+                // ADD THIS BACKGROUND
+                background: "rgba(255,255,255,0.08)",
+
                 backdropFilter: "blur(12px)",
-                boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
-                transition: "all 0.3s ease",
+
+                // ADD THIS BORDER
+                border: "2px solid #347aeb",
+
+                // ADD THIS GLOW EFFECT
+                boxShadow: "0 0 12px rgba(52,122,235,0.6)",
+
                 display: "flex",
                 alignItems: "center",
-                gap: "8px",
-                fontFamily: "'DM Sans', sans-serif"
+                justifyContent: "center",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
               }}
+
+              // ADD THIS HOVER EFFECT
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-2px)";
-                e.currentTarget.style.boxShadow = "0 12px 40px rgba(0,217,196,0.2)";
-                e.currentTarget.style.border = "1px solid rgba(13,217,196,0.5)";
-                e.currentTarget.style.color = "#0dd9c4";
+                e.currentTarget.style.boxShadow =
+                  "0 0 20px rgba(52,122,235,1)";
+                e.currentTarget.style.transform = "scale(1.08)";
               }}
+
+              // ADD THIS NORMAL STATE
               onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 8px 32px rgba(0,0,0,0.2)";
-                e.currentTarget.style.border = "1px solid rgba(255,255,255,0.15)";
-                e.currentTarget.style.color = "#fff";
+                e.currentTarget.style.boxShadow =
+                  "0 0 12px rgba(52,122,235,0.6)";
+                e.currentTarget.style.transform = "scale(1)";
               }}
+
+              aria-label="Open Menu"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#fff"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="15" y2="18"></line>
               </svg>
-              Ask AI
             </button>
           </div>
         </div>

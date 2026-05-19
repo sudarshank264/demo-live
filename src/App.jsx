@@ -4,6 +4,8 @@ import { DynamicPage } from './pages/DynamicPage';
 import { About } from './pages/About';
 import { Careers } from './pages/Careers';
 import { Services } from './pages/Services';
+import { Industries } from './pages/Industries';
+import { Platforms } from './pages/Platforms';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/industries" element={<Industries />} />
+          <Route path="/platforms" element={<Platforms />} />
           <Route path="/services/:category/:slug" element={<DynamicPage />} />
         </Routes>
       </BrowserRouter>
