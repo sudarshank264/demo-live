@@ -100,7 +100,7 @@ export function DigitalBranding() {
 
       {/* 2. About Section (Light) */}
       <section style={{ padding: "120px 32px", background: "#ffffff" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "80px", alignItems: "center" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))", gap: "80px", alignItems: "center" }}>
           <div>
             <h2 style={{ fontFamily: "'Outfit', sans-serif", fontSize: "2.8rem", fontWeight: 800, marginBottom: "24px", color: "#060A10", lineHeight: 1.2 }}>
               More Than Just a Logo
@@ -156,7 +156,7 @@ export function DigitalBranding() {
             </p>
           </div>
           
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "32px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap: "32px" }}>
             {[
               { icon: <Fingerprint size={28} color="#0dd9c4" />, title: "Brand Strategy", desc: "Defining your mission, vision, values, and positioning to create a strong foundation for your brand." },
               { icon: <Palette size={28} color="#0dd9c4" />, title: "Visual Identity", desc: "Crafting distinct logos, color palettes, typography, and visual assets that capture your essence." },
@@ -198,7 +198,7 @@ export function DigitalBranding() {
             </p>
           </div>
           
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "40px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))", gap: "40px" }}>
             {[
               { num: "01", title: "Discovery", desc: "We conduct workshops, stakeholder interviews, and market research to understand your landscape." },
               { num: "02", title: "Strategy", desc: "We define your brand architecture, positioning, and key messaging pillars." },

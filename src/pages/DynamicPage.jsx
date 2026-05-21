@@ -101,7 +101,7 @@ export function DynamicPage() {
 
       {/* 2. About Section (Light) */}
       <section style={{ padding: "120px 32px", background: "#ffffff" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "80px", alignItems: "center" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))", gap: "80px", alignItems: "center" }}>
           <div>
             <h2 style={{ fontFamily: "'Outfit', sans-serif", fontSize: "2.8rem", fontWeight: 800, marginBottom: "24px", color: "#0F3A3E", lineHeight: 1.2 }}>
               Redefining {title} For Modern Enterprises
@@ -154,7 +154,7 @@ export function DynamicPage() {
             </p>
           </div>
           
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "32px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap: "32px" }}>
             {[
               { icon: <Zap size={28} color="#0F3A3E" />, title: "Lightning Fast Execution", desc: "Optimized workflows ensuring rapid deployment and immediate impact on your bottom line." },
               { icon: <Shield size={28} color="#0F3A3E" />, title: "Enterprise Grade Security", desc: "Built with best-in-class security protocols to protect your assets and user data at all times." },
@@ -195,7 +195,7 @@ export function DynamicPage() {
             </p>
           </div>
           
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "40px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))", gap: "40px" }}>
             {[
               { num: "01", title: "Discovery", desc: "Deep dive into your requirements, goals, and market landscape." },
               { num: "02", title: "Strategy", desc: "Formulating a tailored roadmap to ensure optimal execution." },
@@ -214,7 +214,7 @@ export function DynamicPage() {
 
       {/* 5. Why Choose Us Section (Dark) */}
       <section style={{ padding: "120px 32px", background: "#0F3A3E", borderTopLeftRadius: "60px", borderTopRightRadius: "60px" }}>
-         <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "80px", alignItems: "center" }}>
+         <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 400px), 1fr))", gap: "80px", alignItems: "center" }}>
           <div>
             <div style={{ aspectRatio: "1/1", borderRadius: "50%", background: "radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                <div style={{ width: "70%", height: "70%", borderRadius: "50%", background: "rgba(255, 255, 255, 0.05)", border: "1px solid rgba(255, 255, 255, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", backdropFilter: "blur(10px)" }}>

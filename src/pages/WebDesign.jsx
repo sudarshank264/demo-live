@@ -100,7 +100,7 @@ export function WebDesign() {
 
       {/* 2. About Section (Light) */}
       <section style={{ padding: "120px 32px", background: "#ADF4E6" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "80px", alignItems: "center" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))", gap: "80px", alignItems: "center" }}>
           <div>
             <h2 style={{ fontFamily: "'Outfit', sans-serif", fontSize: "2.8rem", fontWeight: 800, marginBottom: "24px", color: "#060A10", lineHeight: 1.2 }}>
               Where Form Meets Function
@@ -156,7 +156,7 @@ export function WebDesign() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "32px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap: "32px" }}>
             {[
               { icon: <Monitor size={28} color="#0dd9c4" />, title: "UI/UX Design", desc: "Crafting intuitive user interfaces and experiences that engage users and simplify complex journeys." },
               { icon: <Smartphone size={28} color="#0dd9c4" />, title: "Front-End Development", desc: "Building fast, interactive, and highly responsive client-side applications using React, Vue, and Next.js." },
@@ -198,7 +198,7 @@ export function WebDesign() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "40px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))", gap: "40px" }}>
             {[
               { num: "01", title: "Wireframing", desc: "We map out the architecture and user flow, ensuring optimal navigation and structure." },
               { num: "02", title: "Visual Design", desc: "We apply your brand identity, creating high-fidelity prototypes for your approval." },

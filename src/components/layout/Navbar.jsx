@@ -16,9 +16,9 @@ const OVERLAY_MENUS = [
   { id: "services", label: "Services", route: "services" },
   { id: "platforms", label: "Platforms", route: "/platforms" },
   { id: "about", label: "About Us", route: "about" },
-  { id: "investors", label: "Investors" },
+ 
   { id: "careers", label: "Careers" },
-  { id: "newsroom", label: "Newsroom" },
+  
   { id: "blogs", label: "Blogs" },
   { id: "contact", label: "Contact Us", route: "contact" }
 ];
@@ -96,6 +96,18 @@ export function Navbar({ scrollTo }) {
 
     if (id === "Careers" || id === "careers") {
       navigate("/careers");
+      setMobileMenuOpen(false);
+      return;
+    }
+
+    if (id === "blogs") {
+      navigate("/blogs");
+      setMobileMenuOpen(false);
+      return;
+    }
+
+    if (id === "contact") {
+      navigate("/contact");
       setMobileMenuOpen(false);
       return;
     }
@@ -404,6 +416,10 @@ export function Navbar({ scrollTo }) {
                     handleNavClick('about');
                   } else if (menu.id === 'careers') {
                     handleNavClick('careers');
+                  } else if (menu.id === 'blogs') {
+                    handleNavClick('blogs');
+                  } else if (menu.id === 'contact') {
+                    handleNavClick('contact');
                   } else {
                     setActiveOverlayMenu(menu.id);
                     setMobileViewState('content');

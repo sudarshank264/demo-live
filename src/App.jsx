@@ -6,6 +6,9 @@ import { Careers } from './pages/Careers';
 import { Services } from './pages/Services';
 import { Industries } from './pages/Industries';
 import { Platforms } from './pages/Platforms';
+import { Blogs } from './pages/Blogs';
+import { BlogDetail } from './pages/BlogDetail';
+import { Contact } from './pages/Contact';
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/platforms" element={<Platforms />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blog/:slug" element={<BlogDetail />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/services/:category/:slug" element={<DynamicPage />} />
         </Routes>
       </BrowserRouter>

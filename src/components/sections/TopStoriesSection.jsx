@@ -1,38 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { BLOGS } from '../../data/blogs';
 
-const stories = [
-  {
-    id: 1,
-    title: "SkoraSoft Unveils AI First Value Framework: Uniquely Positioned to Capture New AI Services Opportunity of Over $300 Billion",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
-    link: "#"
-  },
-  {
-    id: 2,
-    title: "SkoraSoft recognized as a Global Leader in Cloud Transformation and Enterprise Solutions by Top Industry Analysts",
-    image: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=1200&auto=format&fit=crop",
-    link: "#"
-  },
-  {
-    id: 3,
-    title: "Driving Sustainable Growth: How Next-Gen Digital Twin Technology is Reshaping the Manufacturing Industry",
-    image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1200&auto=format&fit=crop",
-    link: "#"
-  },
-  {
-    id: 4,
-    title: "The Future of Quantum Computing: Strategic Partnership to Accelerate Enterprise Adoption by 2027",
-    image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1200&auto=format&fit=crop",
-    link: "#"
-  },
-  {
-    id: 5,
-    title: "Empowering 10 Million Lives with Digital Literacy Programs Across the Globe",
-    image: "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=1200&auto=format&fit=crop",
-    link: "#"
-  }
-];
+const stories = BLOGS;
 
 export function TopStoriesSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -140,13 +111,13 @@ export function TopStoriesSection() {
                 }}
               >
                 {/* Image side */}
-                <div style={{ width: "42%", position: "relative" }}>
+                <Link to={`/blog/${story.slug}`} style={{ width: "42%", position: "relative", display: "block" }}>
                   <img
                     src={story.image}
                     alt={story.title}
                     style={{ width: "100%", height: "100%", objectFit: "cover" }}
                   />
-                </div>
+                </Link>
 
                 {/* Text side */}
                 <div style={{
@@ -156,20 +127,23 @@ export function TopStoriesSection() {
                   flexDirection: "column",
                   justifyContent: "center"
                 }}>
-                  <h3 style={{
-                    fontSize: "clamp(20px, 2vw, 24px)",
-                    lineHeight: "1.4",
-                    color: "#001e4a",
-                    fontWeight: "600",
-                    marginBottom: "32px",
-                    fontFamily: "'DM Sans', sans-serif"
-                  }}>
-                    {story.title}
-                  </h3>
+                  <Link to={`/blog/${story.slug}`} style={{ textDecoration: "none" }}>
+                    <h3 className="story-title-hover" style={{
+                      fontSize: "clamp(20px, 2vw, 24px)",
+                      lineHeight: "1.4",
+                      color: "#001e4a",
+                      fontWeight: "600",
+                      marginBottom: "32px",
+                      fontFamily: "'DM Sans', sans-serif",
+                      transition: "color 0.3s ease"
+                    }}>
+                      {story.title}
+                    </h3>
+                  </Link>
 
                   <div>
-                    <a
-                      href={story.link}
+                    <Link
+                      to={`/blog/${story.slug}`}
                       className="read-more-link"
                       style={{
                         display: "inline-flex",
@@ -186,7 +160,7 @@ export function TopStoriesSection() {
                       }}
                     >
                       Read More <ArrowUpRight size={16} strokeWidth={2} />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -208,13 +182,16 @@ export function TopStoriesSection() {
           .read-more-link svg {
             transition: transform 0.3s ease;
           }
+          .story-title-hover:hover {
+            color: #3b82f6 !important;
+          }
           @media (max-width: 768px) {
             .top-story-card {
               flex-direction: column !important;
               height: auto !important;
               width: 85vw !important;
             }
-            .top-story-card > div:first-child {
+            .top-story-card > a:first-child {
               width: 100% !important;
               height: 220px !important;
             }

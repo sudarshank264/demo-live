@@ -22,7 +22,7 @@ export function About() {
 
       {/* 1. Hero */}
       <section style={{ padding: "180px 32px 100px", background: "#ADF4E6 " }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "80px", alignItems: "center" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 400px), 1fr))", gap: "80px", alignItems: "center" }}>
           <div>
             <div style={{ display: "inline-block", padding: "6px 16px", background: "rgba(0,217,196,0.1)", color: "#00d9c4", borderRadius: "99px", fontSize: "12px", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", marginBottom: "24px" }}>
               About SkoraSoft
@@ -51,7 +51,7 @@ export function About() {
             </div>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+          <div className="about-stats-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
             {[
               { stat: "8+", label: "Years of Experience" },
               { stat: "150+", label: "Projects Delivered" },
@@ -69,7 +69,7 @@ export function About() {
 
       {/* 2. Our Mission */}
       <section style={{ padding: "100px 32px", background: "#ADF4E6" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "80px" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 400px), 1fr))", gap: "80px" }}>
           <div>
             <div style={{ display: "inline-block", padding: "6px 16px", background: "rgba(0,217,196,0.1)", color: "#00d9c4", borderRadius: "99px", fontSize: "12px", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", marginBottom: "24px" }}>
               Our Mission
@@ -116,7 +116,7 @@ export function About() {
               What we stand for
             </h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "32px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: "32px" }}>
             {[
               { title: "Innovation & Creativity", desc: "We push boundaries and encourage bold thinking — fresh perspectives that deliver smarter products and solutions." },
               { title: "Technical Excellence", desc: "Deep expertise across engineering, design, and consulting — built on continuous learning and mastery of craft." },
@@ -230,6 +230,11 @@ export function About() {
           }
           .timeline-container h3 {
             margin-top: 8px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .about-stats-grid {
+            grid-template-columns: 1fr !important;
           }
         }
       `}</style>

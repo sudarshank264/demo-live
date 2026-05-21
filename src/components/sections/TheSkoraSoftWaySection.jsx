@@ -5,6 +5,19 @@ export function TheSkoraSoftWaySection() {
   const [ref, vis] = useInView(0.08);
   return (
     <section ref={ref} style={{ background: "#ADF4E6" }}>
+      <style>{`
+        @media (max-width: 992px) {
+          .skorasoft-way-left, .skorasoft-way-right {
+            text-align: center !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+          }
+          .skorasoft-way-left > div, .skorasoft-way-right > div {
+            justify-content: center !important;
+          }
+        }
+      `}</style>
       <div className="responsive-container">
         <div style={{ textAlign: "center", marginBottom: "52px" }}>
           <GradBadge>How It Works</GradBadge>
@@ -17,7 +30,7 @@ export function TheSkoraSoftWaySection() {
         </div>
         <div className="responsive-flex" style={{ gap: "40px", alignItems: "center", justifyContent: "center" }}>
           {/* Others */}
-          <div style={{ opacity: vis ? 1 : 0, transform: vis ? "none" : "translateX(-40px)", transition: "opacity 0.9s ease 0.3s, transform 0.9s ease 0.3s" }}>
+          <div className="skorasoft-way-left" style={{ opacity: vis ? 1 : 0, transform: vis ? "none" : "translateX(-40px)", transition: "opacity 0.9s ease 0.3s, transform 0.9s ease 0.3s" }}>
             <h3 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: "1.5rem", color: "#0dd9c4", marginBottom: "24px" }}>Others Way</h3>
             {["Individual Driven", "Reactive Delivery", "Short-Term Engagement", "Limited Accountability"].map((item, i) => (
               <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "14px" }}>
@@ -141,7 +154,7 @@ export function TheSkoraSoftWaySection() {
             </svg>
           </div>
           {/* SkoraSoft */}
-          <div style={{ textAlign: "right", opacity: vis ? 1 : 0, transform: vis ? "none" : "translateX(40px)", transition: "opacity 0.9s ease 0.3s, transform 0.9s ease 0.3s" }}>
+          <div className="skorasoft-way-right" style={{ textAlign: "right", opacity: vis ? 1 : 0, transform: vis ? "none" : "translateX(40px)", transition: "opacity 0.9s ease 0.3s, transform 0.9s ease 0.3s" }}>
             <h3 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: "1.5rem", color: "#111", marginBottom: "24px" }}>SkoraSoft</h3>
             {["System Governed", "Predictable Execution", "Long-Term Partnership", "Transparent Governance"].map((item, i) => (
               <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "12px", marginBottom: "14px" }}>

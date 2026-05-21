@@ -34,8 +34,8 @@ const PLATFORMS_DATA = [
     features: ["Advanced A/B Testing Engine", "User Journey Mapping", "Conversion Rate Optimization"],
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
     icon: <Target size={64} color="#0dd9c4" strokeWidth={1.5} />,
-    bgColor: "#060A10",
-    textColor: "#ffffff",
+    bgColor: "#ADF4E6",
+    textColor: "#000000",
     cardBg: "rgba(255,255,255,0.03)",
     reversed: true
   },
@@ -60,8 +60,8 @@ const PLATFORMS_DATA = [
     features: ["Real-Time Interactive Dashboards", "AI-Powered Predictive Analytics", "Custom Reporting Modules"],
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
     icon: <Search size={64} color="#0dd9c4" strokeWidth={1.5} />,
-    bgColor: "#060A10",
-    textColor: "#ffffff",
+    bgColor: "#ADF4E6",
+    textColor: "#000000",
     cardBg: "rgba(255,255,255,0.03)",
     reversed: true
   },
@@ -191,7 +191,7 @@ export function Platforms() {
       {PLATFORMS_DATA.map((platform, index) => {
         const isDark = platform.bgColor === "#060A10";
         const contentBlock = (
-          <div style={{ flex: 1, padding: "40px 0" }}>
+          <div style={{ flex: 1, padding: "40px 0", minWidth: "min(100%, 450px)" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
               <div style={{
                 width: "80px",
@@ -315,7 +315,7 @@ export function Platforms() {
         );
 
         const visualBlock = (
-          <div style={{ flex: 1, position: "relative" }}>
+          <div style={{ flex: 1, position: "relative", minWidth: "min(100%, 450px)" }}>
             <div style={{
               aspectRatio: "4/4",
               background: platform.cardBg,

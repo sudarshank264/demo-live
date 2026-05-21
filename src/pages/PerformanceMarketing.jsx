@@ -100,7 +100,7 @@ export function PerformanceMarketing() {
 
       {/* 2. About Section (Light) */}
       <section style={{ padding: "120px 32px", background: "#ADF4E6" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "80px", alignItems: "center" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))", gap: "80px", alignItems: "center" }}>
           <div>
             <h2 style={{ fontFamily: "'Outfit', sans-serif", fontSize: "2.8rem", fontWeight: 800, marginBottom: "24px", color: "#060A10", lineHeight: 1.2 }}>
               Every Click Counts
@@ -156,7 +156,7 @@ export function PerformanceMarketing() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "32px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap: "32px" }}>
             {[
               { icon: <Search size={28} color="#0dd9c4" />, title: "Search Engine Optimization (SEO)", desc: "Elevate your organic visibility and drive high-intent traffic to your website through proven technical and content strategies." },
               { icon: <Target size={28} color="#0dd9c4" />, title: "Pay-Per-Click (PPC)", desc: "Maximize returns with highly targeted search and display advertising campaigns on Google, Bing, and beyond." },
@@ -198,7 +198,7 @@ export function PerformanceMarketing() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "40px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))", gap: "40px" }}>
             {[
               { num: "01", title: "Audit & Strategize", desc: "We analyze your current performance, identify gaps, and build a cohesive cross-channel strategy." },
               { num: "02", title: "Setup & Tracking", desc: "We ensure all analytics, pixels, and tracking parameters are perfectly aligned for accurate measurement." },

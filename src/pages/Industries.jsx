@@ -206,7 +206,7 @@ export function Industries() {
       {INDUSTRIES_DATA.map((industry, index) => {
         const isDark = industry.bgColor === "#060A10";
         const contentBlock = (
-          <div style={{ flex: 1, padding: "40px 0" }}>
+          <div style={{ flex: 1, padding: "40px 0", minWidth: "min(100%, 450px)" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
               <div style={{
                 width: "80px",
@@ -330,7 +330,7 @@ export function Industries() {
         );
 
         const visualBlock = (
-          <div style={{ flex: 1, position: "relative" }}>
+          <div style={{ flex: 1, position: "relative", minWidth: "min(100%, 450px)" }}>
             <div style={{
               aspectRatio: "4/4",
               background: industry.cardBg,

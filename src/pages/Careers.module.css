@@ -694,6 +694,8 @@
 
   .hero {
     padding: 140px 24px 72px;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .heroStats {
